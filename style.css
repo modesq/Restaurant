@@ -1,0 +1,66 @@
+.topnav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #0aa2a5;
+    color: white;
+}
+
+.footer {
+    position: static;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: #333;
+}
+
+.footer {
+    margin-top: 100px;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.footer svg {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    color: #f1f1f1;
+}
+
+.restaurant {
+    padding-top: 100px;
+}
+
+/* body {
+    background-color: black;
+} */
+
+h1 {
+    color: #f1f1f1;
+    text-align: center;
+}
