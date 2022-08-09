@@ -71,6 +71,15 @@ table{
     color: turquoise;
     background-color: black;
 }
+
+#foodTable-stastics {
+    margin-top: 180px;
+}
+
+#foodTable {
+    display: none;
+}
+
 td {
     background-color:#333;  
     line-height: 25px;

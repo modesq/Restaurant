@@ -15,3 +15,14 @@
 	i have been working on this task for the last 4 hours since i got home from my lectures and i didnt make much progress, i had no idea how much its gonna take me but i had hoped i would make some progress by now.
 
     EDIT: add 4 more hours to that spent studying and testing what i have been learning.
+
+---------------------------
+
+## task 12:
+i migrated the table to the stastics.html file and added the necessary functions with it in stastics.js, its all working well except retreiving the data back, it all goes back as null for some reason even though i hand the getData() function the correct key to retrieve the data back from the local storage.
+
+### What observations or questions do you have about what you’ve learned so far?
+    sending data from one page to another through local storage is harder than it needs to be.
+
+### How long did it take you to complete this assignment? And, before you started, how long did you think it would take you to complete this assignment?
+    it took me around an hour to get where im at at the moment but i hope i will finish it up tomorrow.
