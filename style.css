@@ -22,13 +22,14 @@
 }
 
 .topnav a.active {
-    background-color: #0aa2a5;
+    background-color: turquoise;
     color: white;
 }
 
 .footer {
-    position: static;
-    padding: 10px 10px 0px 10px;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 10px 10px 10px;
     bottom: 0;
     width: 100%;
     height: auto;
@@ -40,7 +41,7 @@
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 16px 16px ;
     text-decoration: none;
     font-size: 17px;
 }
@@ -52,13 +53,29 @@
     color: #f1f1f1;
 }
 
-.restaurant {
-    padding-top: 100px;
+
+
+#restaurantForm {
+    margin-top: 180px;
+    text-align: center;
+    justify-content:space-evenly;
 }
 
-/* body {
+table{
+    height: 100%;
+    width: 90%;
+    margin: 25px;
+    table-layout: fixed;
+    box-sizing: border-box;
+    border-collapse: separate;
+    border-style: double;
+    color: turquoise;
     background-color: black;
-} */
+}
+td {
+    background-color:#333;  
+    line-height: 25px;
+}
 
 h1 {
     color: #f1f1f1;
