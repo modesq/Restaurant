@@ -1,6 +1,6 @@
 let counter = 1000;
 let form;
-const allFood = [];
+let allFood = [];
 
 function Food(name, type, price) {
     this.ID = generateFoodID();
