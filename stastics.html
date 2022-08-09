@@ -6,42 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
+    <script src="statistics.js"></script>
+    
     <title>Restaurant Project</title>
 </head>
 
 <header>
     <div class="topnav">
         <h1>Restaurant Project</h1>
-        <a class="active" href="./index.html">Home</a>
-        <a href="stastics.html">Stastics</a>
+        <a href="./index.html">Home</a>
+        <a class="active" href="./stastics.html">Stastics</a>
         <a href="#about">About us</a>
     </div>
 </header>
 
 <body>
     <div>
-        <form id="restaurantForm">
-            <label for="Food Name">Food Name: </label>
-            <input type="text" id="foodName">
-            <br>
-            <label for="Food Types">pick the food type:</label>
-            <select name="Food Type" id="foodType">
-                <option value="fruitAndVegetables">Fruit and Vegetables</option>
-                <option value="starchyFood">Starchy food</option>
-                <option value="dairy">Dairy</option>
-                <option value="protein">Protein</option>
-                <option value="fat">Fat</option>
-            </select>
-            <br>
-            <label for="price">Price: </label>
-            <input type="text" id="foodPrice">
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
-    <div>
-        <table id="foodTable">
+        <table id="foodTable-stastics">
             <tr id="tableLabels">
                 <td>ID</td>
                 <td>Name</td>
@@ -50,8 +31,6 @@
             </tr>
         </table>
     </div>
-
-
 </body>
 
 <footer>
@@ -81,5 +60,3 @@
         <p>FAQ</p>
     </div>
 </footer>
-
-</html>

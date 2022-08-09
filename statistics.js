@@ -1,4 +1,4 @@
-var counter = 1000;
+let counter = 1000;
 let form;
 let allFood = [];
 
@@ -12,7 +12,7 @@ function Food(name, type, price) {
     this.render();
 }
 
-Food.prototype.render = function() {
+Food.prototype.render = function () {
     let newRow = document.createElement("tr");
     foodTable.appendChild(newRow);
     let newID = document.createElement("td");
@@ -24,36 +24,40 @@ Food.prototype.render = function() {
     let newType = document.createElement("td");
     newType.textContent = this.type;
     newRow.appendChild(newType);
-    let newPrice = document.createElement("td");   
+    let newPrice = document.createElement("td");
     newPrice.textContent = this.price;
     newRow.appendChild(newPrice);
 }
 
-
 window.addEventListener('load', function () {
-    const foodTable = document.getElementById("foodTable");
+    const foodTable = document.getElementById("foodTable-stastics");
     form = document.getElementById("restaurantForm");
-    form.addEventListener("submit", handleSubmit);
+    getData();
+    // form.addEventListener("submit", handleSubmit);
 })
 
+function getData() {
+    let retrievedData = localStorage.getItem("food")
+    let arrayData = JSON.parse(retrievedData);
+    console.log(arrayData);
+    if (arrayData != null) {
+        for (let i = 0; i < arrayData.length; i++) {
+            new Food(
+                arrayData[i].ID,
+                arrayData[i].name,
+                arrayData[i].type,
+                arrayData[i].price
+            );
+        }
+    }
 
-function handleSubmit(event){
-    event.preventDefault();
-    let name = event.target.foodName.value
-    let type = event.target.foodType.value;
-    let price = event.target.foodPrice.value;
+    // for (let i = 0; i < allFood.length; i++) {
+    //     allFood[i].printMenu();
+    // }
 
-    const newFood = new Food(name, type, price);
-
-    form.reset();
-    saveData(allFood);
-    console.log(allFood);
+    console.log('-->', food);
+    console.log('-->', arrayData);
 }
-
-function saveData(data) {
-    let stringObj = JSON.stringify(data);
-    localStorage.setItem("food", stringObj);
-  }
 
 function generateFoodID() {
     return counter++;
