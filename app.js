@@ -1,6 +1,7 @@
-const counter = 1000;
+let counter = 1000;
+let form;
 const allFood = [];
-const foodTable = document.getElementById("foodTable");
+
 function Food(name, type, price) {
     this.ID = generateFoodID();
     this.name = name;
@@ -8,18 +9,43 @@ function Food(name, type, price) {
     this.price = price;
 
     allFood.push(this);
+    this.render();
 }
 
-let form = document.getElementById("restaurant");
-form.addEventListener("submit", handleSubmit);
+Food.prototype.render = function() {
+    let newRow = document.createElement("tr");
+    foodTable.appendChild(newRow);
+    let newID = document.createElement("td");
+    newID.textContent = this.ID;
+    newRow.appendChild(newID);
+    let newName = document.createElement("td");
+    newName.textContent = this.name;
+    newRow.appendChild(newName);
+    let newType = document.createElement("td");
+    newType.textContent = this.type;
+    newRow.appendChild(newType);
+    let newPrice = document.createElement("td");   
+    newPrice.textContent = this.price;
+    newRow.appendChild(newPrice);
+}
+
+
+window.addEventListener('load', function () {
+    const foodTable = document.getElementById("foodTable");
+    form = document.getElementById("restaurantForm");
+    form.addEventListener("submit", handleSubmit);
+})
+
 
 function handleSubmit(event){
     event.preventDefault();
-    let ID = generateFoodID();
-    let name = event.getElementById("foodName").value;
-    let type = event.getElementById("foodType").value;
-    let price = event.getElementById("foodPrice").value;
+    let name = event.target.foodName.value
+    let type = event.target.foodType.value;
+    let price = event.target.foodPrice.value;
 
+    const newFood = new Food(name, type, price);
+    form.reset();
+    console.log(allFood);
 }
 
 function generateFoodID() {
