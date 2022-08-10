@@ -1,64 +1,47 @@
-let counter = 1000;
-let form;
-let allFood = [];
+// let allFood = [];
 
-function Food(name, type, price) {
-    this.ID = generateFoodID();
-    this.name = name;
-    this.type = type;
-    this.price = price;
-
-    allFood.push(this);
-    this.render();
+function render(getData) {
+    // getData();
+    let fixedData = getData();
+    console.log("before loop...");
+    // console.log(fixedData[0]);
+    if (fixedData != null) {
+        for (let i = 0; i < fixedData.length; i++) {
+            console.log("IN LOOP......");
+            let newRow = document.createElement("tr");
+            foodTable.appendChild(newRow);
+            let newID = document.createElement("td");
+            newID.textContent = fixedData[i].ID;
+            newRow.appendChild(newID);
+            let newName = document.createElement("td");
+            newName.textContent = fixedData[i].name;
+            newRow.appendChild(newName);
+            let newType = document.createElement("td");
+            newType.textContent = fixedData[i].type;
+            newRow.appendChild(newType);
+            let newPrice = document.createElement("td");
+            newPrice.textContent = fixedData[i].price;
+            newRow.appendChild(newPrice);
+        }
+    }
+    console.log("after loop...");
 }
 
-Food.prototype.render = function () {
-    let newRow = document.createElement("tr");
-    foodTable.appendChild(newRow);
-    let newID = document.createElement("td");
-    newID.textContent = this.ID;
-    newRow.appendChild(newID);
-    let newName = document.createElement("td");
-    newName.textContent = this.name;
-    newRow.appendChild(newName);
-    let newType = document.createElement("td");
-    newType.textContent = this.type;
-    newRow.appendChild(newType);
-    let newPrice = document.createElement("td");
-    newPrice.textContent = this.price;
-    newRow.appendChild(newPrice);
-}
+render(getData);
 
 window.addEventListener('load', function () {
     const foodTable = document.getElementById("foodTable-stastics");
-    form = document.getElementById("restaurantForm");
-    getData();
-    // form.addEventListener("submit", handleSubmit);
+    let form = document.getElementById("restaurantForm");
 })
 
 function getData() {
+
     let retrievedData = localStorage.getItem("food")
-    let arrayData = JSON.parse(retrievedData);
-    console.log(arrayData);
-    if (arrayData != null) {
-        for (let i = 0; i < arrayData.length; i++) {
-            new Food(
-                arrayData[i].ID,
-                arrayData[i].name,
-                arrayData[i].type,
-                arrayData[i].price
-            );
-        }
-    }
+    let parsedData = JSON.parse(retrievedData);
 
-    // for (let i = 0; i < allFood.length; i++) {
-    //     allFood[i].printMenu();
-    // }
-
-    console.log('-->', food);
-    console.log('-->', arrayData);
-}
-
-function generateFoodID() {
-    return counter++;
+    // let parsedData = "fuck you!";
+    console.log("in getData");
+    // console.log('-->', allFood);
+    console.log('-->', parsedData);
+    return parsedData;
 }
