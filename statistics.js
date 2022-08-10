@@ -1,10 +1,21 @@
-// let allFood = [];
+window.addEventListener('load', function () {
+    const foodTable = document.getElementById("foodTable-stastics");
+    let form = document.getElementById("restaurantForm");
+    render(getData, foodTable);
+})
 
-function render(getData) {
-    // getData();
+function getData() {
+    let retrievedData = localStorage.getItem("food")
+    let parsedData = JSON.parse(retrievedData);
+
+    console.log("in getData");
+    console.log('-->', parsedData);
+    return parsedData;
+}
+
+function render(getData, foodTable) {
     let fixedData = getData();
     console.log("before loop...");
-    // console.log(fixedData[0]);
     if (fixedData != null) {
         for (let i = 0; i < fixedData.length; i++) {
             console.log("IN LOOP......");
@@ -25,23 +36,4 @@ function render(getData) {
         }
     }
     console.log("after loop...");
-}
-
-render(getData);
-
-window.addEventListener('load', function () {
-    const foodTable = document.getElementById("foodTable-stastics");
-    let form = document.getElementById("restaurantForm");
-})
-
-function getData() {
-
-    let retrievedData = localStorage.getItem("food")
-    let parsedData = JSON.parse(retrievedData);
-
-    // let parsedData = "fuck you!";
-    console.log("in getData");
-    // console.log('-->', allFood);
-    console.log('-->', parsedData);
-    return parsedData;
 }
